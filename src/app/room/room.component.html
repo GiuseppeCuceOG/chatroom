@@ -1,3 +1,3 @@
-<p>
-  room works!
-</p>
+<div *ngFor="let mess of messages">
+ <p>{{mess.name}}: <span>{{mess.message}}</span></p>
+</div>

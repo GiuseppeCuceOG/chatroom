@@ -1,0 +1,16 @@
+{
+	"chat": [
+		{
+			"name": "Peppe",
+			"message": "Hi"
+		},
+		{
+			"name": "Alex",
+			"message": "Hello"
+		},
+		{
+			"name": "Peppe",
+			"message": "All good here"
+		}
+	]
+}

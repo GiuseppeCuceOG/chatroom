@@ -10,9 +10,9 @@
 		</form>	
 	</div>
 	<div [hidden]="!nameInserted">
-		<form novalidate>
+		<form novalidate (submit)="insertMessage($event)">
 			<p>
-		  		{{user}}: <input type="text" placeholder="type your message">
+		  		{{user}}: <input type="text" placeholder="type your message" id="text">
 			</p>
 			<p>
 		  		<input type="submit">
