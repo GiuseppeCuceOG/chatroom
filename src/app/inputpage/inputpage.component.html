@@ -1,0 +1,22 @@
+<div>
+	<div [hidden]="nameInserted">
+		<form novalidate (submit)="insertNickname($event)">
+			<p>
+		  		Nickname: <input type="text" placeholder="nickname" id="nickname">
+			</p>
+			<p>
+		  		<input type="submit">
+			</p>
+		</form>	
+	</div>
+	<div [hidden]="!nameInserted">
+		<form novalidate>
+			<p>
+		  		{{user}}: <input type="text" placeholder="type your message">
+			</p>
+			<p>
+		  		<input type="submit">
+			</p>
+		</form>	
+	</div>
+</div>
