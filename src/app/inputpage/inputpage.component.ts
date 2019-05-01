@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MessagesService } from '../services/messages.service';
 import { Message } from '../shared/message';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-inputpage',
@@ -11,14 +12,28 @@ export class InputpageComponent implements OnInit {
 
   nameInserted = false;
   user: string;
-  text: string;
-  message;
+  text: Message;
+  textcopy: Message;
+  messageForm: FormGroup;
 
-  constructor(private messService: MessagesService,
-    @Inject('BaseURL') private BaseURL) { }
+  constructor(
+    private messService: MessagesService,
+    private ff: FormBuilder,
+    @Inject('BaseURL') private BaseURL) { 
+    this.createForm();
+  }
 
   ngOnInit() {
   	
+  }
+
+  createForm() {
+    this.messageForm = this.ff.group(
+      {
+        name: [''],
+        message: [''],     
+      }
+    );
   }
 
   insertNickname(event) {
@@ -27,18 +42,16 @@ export class InputpageComponent implements OnInit {
   	let nickname = target.querySelector('#nickname').value;
   	this.user = nickname;
   	this.nameInserted = true;
-  	console.log(nickname, this.nameInserted);
   }
 
-  insertMessage(event) {
-    event.preventDefault()
-    const target = event.target;
-    let mess = target.querySelector('#text').value;
-    this.text = mess;
-    this.message = this.user + ' ' + this.text;
-    this.messService.putMessage(this.message)
-      .subscribe((mess) => {this.message = mess});
-    console.log(this.message);
+  insertMessage() {
+
+    this.text = this.messageForm.value;
+    this.messService.putMessage(this.text)
+      .subscribe((txt) => {
+        this.text = txt;
+        this.textcopy = txt;
+      });
   }
 
 }
