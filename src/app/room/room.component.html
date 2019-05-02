@@ -1,3 +1,28 @@
 <div *ngFor="let mess of messages">
  <p>{{mess.name}}: <span>{{mess.message}}</span></p>
 </div>
+<div>
+	<div [hidden]="nameInserted">
+		<form novalidate (submit)="insertNickname($event)">
+			<p>
+		  		Nickname: <input type="text" placeholder="nickname" id="nickname">
+			</p>
+			<p>
+		  		<input type="submit">
+			</p>
+		</form>	
+	</div>
+	<div [hidden]="!nameInserted">
+		<form novalidate [formGroup]="messageForm" (submit)="insertMessage()">
+			<p>
+		  		<input type="text" formControlName="name" id="name" value="{{user}}">
+			</p>			
+			<p>
+		  		<input type="text" placeholder="type your message"formControlName="message" id="message">
+			</p>
+			<p>
+		  		<input type="submit">
+			</p>
+		</form>	
+	</div>
+</div>

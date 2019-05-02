@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
+import { MessagesService } from '../services/messages.service';
+import { Message } from '../shared/message';
 
 @Component({
   selector: 'app-users',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
-  constructor() { }
+  messages: Message[];
+
+  constructor(private messService: MessagesService,
+  	@Inject('BaseURL') private BaseURL) { }
 
   ngOnInit() {
+  	this.messService.getMessages()
+  		.subscribe((mess) => this.messages = mess);
   }
 
 }

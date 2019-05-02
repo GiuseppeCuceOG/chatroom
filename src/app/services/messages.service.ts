@@ -14,11 +14,6 @@ export class MessagesService {
 
   getMessages(): Observable<Message[]> {
   	return this.http.get<Message[]>(baseURL + 'chat');
-  }
-
-  getIdsMess(): Observable<string[] | any> {
-  	  	return this.getMessages()
-      .pipe(map(messages => messages.map(mess => mess.id)))
   }  
 
   putMessage(mess: Message): Observable<Message> {

@@ -1,9 +1,5 @@
 <div class="usersList">
 	<ul>
-		<li>peppe</li>
-		<li>alex</li>
-		<li>jack</li>
-		<li>oliver</li>
-		<li>andrew</li>
+ 		<li *ngFor="let mess of messages">{{mess.name}}</li>
 	</ul>
 </div>
