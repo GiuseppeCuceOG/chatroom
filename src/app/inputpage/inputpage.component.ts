@@ -11,10 +11,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class InputpageComponent implements OnInit {
 
   nameInserted = false;
-  user: string;
+  user;
   text: Message;
   textcopy: Message;
   messageForm: FormGroup;
+  messIds: string[];
 
   constructor(
     private messService: MessagesService,
@@ -24,7 +25,9 @@ export class InputpageComponent implements OnInit {
   }
 
   ngOnInit() {
-  	
+  	this.messService.getIdsMess()
+      .subscribe((mess) => this.messIds = mess);
+      console.log(this.messIds);
   }
 
   createForm() {

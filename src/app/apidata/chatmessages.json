@@ -1,16 +1,29 @@
 {
-	"chat": [
-		{
-			"name": "Peppe",
-			"message": "Hi"
-		},
-		{
-			"name": "Alex",
-			"message": "Hello"
-		},
-		{
-			"name": "Peppe",
-			"message": "All good here"
-		}
-	]
+  "chat": [
+    {
+      "id": "1",
+      "name": "Peppe",
+      "message": "Hi"
+    },
+    {
+      "id": "2",
+      "name": "Alex",
+      "message": "Hello"
+    },
+    {
+      "id": "3",
+      "name": "Peppe",
+      "message": "All good here"
+    },
+    {
+      "name": "Annaa",
+      "message": "Ciao",
+      "id": "4"
+    },
+    {
+      "name": "Sergio",
+      "message": "How are you",
+      "id": "5"
+    }
+  ]
 }
