@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject} from '@angular/core';
+import { Component, OnInit, Inject, ViewChild} from '@angular/core';
 import { MessagesService } from '../services/messages.service';
 import { Message } from '../shared/message';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -20,7 +20,7 @@ export class RoomComponent implements OnInit {
 
   constructor(
     private messService: MessagesService,
-    private ff: FormBuilder,
+    private fb: FormBuilder,
     @Inject('BaseURL') private BaseURL) { 
     this.createForm();
   }
@@ -31,16 +31,14 @@ export class RoomComponent implements OnInit {
   }
 
   createForm() {
-    this.messageForm = this.ff.group(
+    this.messageForm = this.fb.group(
       {
-        name: [''],
         message: [''],     
       }
     );
   }
 
   insertNickname(event) {
-    event.preventDefault()
     const target = event.target;
     let nickname = target.querySelector('#nickname').value;
     this.user = nickname;
@@ -50,6 +48,7 @@ export class RoomComponent implements OnInit {
   insertMessage() {
 
     this.text = this.messageForm.value;
+    this.text.name = this.user;
     this.messService.putMessage(this.text)
       .subscribe((txt) => {
         this.text = txt;

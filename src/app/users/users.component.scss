@@ -1,5 +1,11 @@
 .usersList {
-	background-color: #5bf;
+	background-color: #26f;
 	color: #eee;
 	width: 200px;
+	height: 100vh;
+
+	&-title {
+		margin-block-start: 0em;
+		padding: .5em;
+	}
 }

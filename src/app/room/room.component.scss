@@ -1,0 +1,57 @@
+.chat {
+
+	&-room {
+
+		overflow: auto;
+		height: 500px;
+
+		&::-webkit-scrollbar {
+    		width: 1px;
+		}
+
+		&-messages {
+			background-color: #29f;
+			color: #fff;
+			padding: .5em;
+			margin-left: .5em;
+			border-radius: 8px;
+		}
+	}
+
+	&-inputArea {
+
+		&-message, &-nickname {
+			position: absolute;
+			width: 50%;
+			bottom: 0;
+		}
+
+		&-message {
+
+			border-top: 1px solid #26f;
+			
+			&-userinput {
+				display: inline-block;
+				margin-left: .5em;
+
+				&-user {
+					color: #eee;
+					font-size: 1.4em;
+					margin-left: 1em;
+				}
+			}
+		}
+
+		&-nickname {
+
+			border-top: 1px solid #26f;
+
+			&-user {
+				color: #fff;
+				display: inline-block;
+				font-size: 1.2em;
+				margin-left: 1em;
+			}
+		}		
+	}
+}
