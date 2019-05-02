@@ -54,5 +54,6 @@ export class RoomComponent implements OnInit {
         this.text = txt;
         this.textcopy = txt;
       });
+    this.text.message = "";  
   }
 }
