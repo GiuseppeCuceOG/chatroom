@@ -50,7 +50,7 @@ export class RoomComponent implements OnInit {
     this.nameInserted = true;
   }
 
-  insertMessage() {
+  onSubmit() {
 
     this.text = this.messageForm.value;
     this.text.name = this.user;

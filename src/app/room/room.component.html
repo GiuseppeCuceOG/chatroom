@@ -3,15 +3,15 @@
 	 <p *ngFor="let mess of messages" class="chat-room-messages">{{mess.name}}: <span>{{mess.message}}</span></p>
 	</div>
 
-	<div class="chat-room" [hidden]="messageForm.pristine">
-    	<p class="chat-room-messages">{{user}} <span>{{ realTimeMess.message }}</span></p>
+	<div [hidden]="messageForm.pristine">
+    	<p class="chat-room-messages">{{user}}: <span>{{ realTimeMess.message }}</span></p>
 	</div>
 
 	<div class="chat-inputArea">
 		<div class="chat-inputArea-nickname" [hidden]="nameInserted">
 			<form novalidate (ngSubmit)="insertNickname($event)">
 				<p class="chat-inputArea-nickname-user">
-			  		<span class="chat-inputArea-nickname-user-name">Nickname: </span> <input type="text" id="nickname">
+			  		<span class="chat-inputArea-nickname-user-name">Nickname: </span><input type="text" id="nickname">
 				</p>
 				<p class="chat-inputArea-nickname-user">
 			  		<button type="submit">Submit</button>
@@ -19,7 +19,7 @@
 			</form>	
 		</div>
 		<div class="chat-inputArea-message" [hidden]="!nameInserted">
-			<form novalidate #fform="ngForm" [formGroup]="messageForm" (ngSubmit)="insertMessage()">
+			<form novalidate #fform="ngForm" [formGroup]="messageForm" (ngSubmit)="onSubmit()">
 				<p class="chat-inputArea-message-userinput">
 			  		<span class="chat-inputArea-message-userinput-user">{{user}}</span>
 				</p>			
