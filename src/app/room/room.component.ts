@@ -17,6 +17,11 @@ export class RoomComponent implements OnInit {
   textcopy: Message;
   messageForm: FormGroup;
   messIds: string[];
+  @ViewChild('fform') realTimeMessageFormDirective;
+
+  realTimeMess = {
+    message: ''
+  };
 
   constructor(
     private messService: MessagesService,
@@ -54,6 +59,6 @@ export class RoomComponent implements OnInit {
         this.text = txt;
         this.textcopy = txt;
       });
-    this.text.message = "";  
+    this.realTimeMessageFormDirective.resetForm(); 
   }
 }
